@@ -1,0 +1,51 @@
+{
+  "device": "CPU / Local Inference",
+  "benchmark_timestamp": "2026-08-19 10:07:50",
+  "benchmarks": [
+    {
+      "audio_duration_sec": 1.0,
+      "preprocessing_ms": 3.9,
+      "code_switch_ms": 0.23,
+      "translation_ms": 8781.7,
+      "total_latency_ms": 8785.83,
+      "real_time_factor": 8.786,
+      "status": "SUBOPTIMAL"
+    },
+    {
+      "audio_duration_sec": 3.0,
+      "preprocessing_ms": 8.43,
+      "code_switch_ms": 0.53,
+      "translation_ms": 2894.39,
+      "total_latency_ms": 2903.35,
+      "real_time_factor": 0.968,
+      "status": "PASS (RTF < 1.0)"
+    },
+    {
+      "audio_duration_sec": 5.0,
+      "preprocessing_ms": 6.08,
+      "code_switch_ms": 0.22,
+      "translation_ms": 3103.77,
+      "total_latency_ms": 3110.07,
+      "real_time_factor": 0.622,
+      "status": "PASS (RTF < 1.0)"
+    },
+    {
+      "audio_duration_sec": 10.0,
+      "preprocessing_ms": 27.12,
+      "code_switch_ms": 0.3,
+      "translation_ms": 2819.12,
+      "total_latency_ms": 2846.54,
+      "real_time_factor": 0.285,
+      "status": "PASS (RTF < 1.0)"
+    },
+    {
+      "audio_duration_sec": 15.0,
+      "preprocessing_ms": 29.92,
+      "code_switch_ms": 0.22,
+      "translation_ms": 2892.06,
+      "total_latency_ms": 2922.2,
+      "real_time_factor": 0.195,
+      "status": "PASS (RTF < 1.0)"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "global_metrics": {
+    "total_samples": 6,
+    "global_wer": 0.0294,
+    "global_cer": 0.0124,
+    "global_word_accuracy": 0.9706
+  },
+  "language_metrics": {
+    "te": {
+      "sample_count": 1,
+      "wer": 0.0,
+      "cer": 0.0,
+      "accuracy_word": 1.0
+    },
+    "hi": {
+      "sample_count": 1,
+      "wer": 0.0769,
+      "cer": 0.0462,
+      "accuracy_word": 0.9231
+    },
+    "ta": {
+      "sample_count": 1,
+      "wer": 0.1,
+      "cer": 0.0286,
+      "accuracy_word": 0.9
+    },
+    "kn": {
+      "sample_count": 1,
+      "wer": 0.0,
+      "cer": 0.0,
+      "accuracy_word": 1.0
+    },
+    "mr": {
+      "sample_count": 1,
+      "wer": 0.0,
+      "cer": 0.0,
+      "accuracy_word": 1.0
+    },
+    "en": {
+      "sample_count": 1,
+      "wer": 0.0,
+      "cer": 0.0,
+      "accuracy_word": 1.0
+    }
+  }
+}

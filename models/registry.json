@@ -1,0 +1,39 @@
+{
+  "asr": {
+    "name": "indic-conformer-multilingual",
+    "version": "1.0.0",
+    "provider": "IndicConformerASRProvider",
+    "architecture": "Conformer-CTC/RNNT",
+    "hf_model_id": "ai4bharat/indic-conformer-600m-multilingual",
+    "fallback_model_id": "openai/whisper-tiny",
+    "supported_languages": ["te", "hi", "ta", "kn", "ml", "mr", "bn", "gu", "or", "pa", "as", "en"],
+    "sample_rate": 16000,
+    "license": "MIT",
+    "local_path": "models/asr/indic_conformer"
+  },
+  "translation": {
+    "name": "indictrans2-indic-en",
+    "version": "1.0.0",
+    "provider": "IndicTrans2Provider",
+    "architecture": "Transformer-Seq2Seq",
+    "hf_model_id": "ai4bharat/indictrans2-indic-en-1B",
+    "fallback_model_id": "facebook/nllb-200-distilled-600M",
+    "supported_pairs": ["te-en", "hi-en", "ta-en", "kn-en", "ml-en", "mr-en", "bn-en", "gu-en", "or-en", "pa-en", "as-en"],
+    "license": "CC-BY-NC-4.0 / MIT Adaptable",
+    "local_path": "models/translation/indictrans2"
+  },
+  "code_switch": {
+    "name": "prism-code-switch-analyzer",
+    "version": "1.0.0",
+    "strategy": "hybrid-script-phonetic-lexical",
+    "supported_pairs": ["te-en", "hi-en", "ta-en", "kn-en", "ml-en", "mr-en", "bn-en"]
+  },
+  "preprocessing": {
+    "name": "prism-audio-normalizer",
+    "version": "1.0.0",
+    "sample_rate": 16000,
+    "channels": 1,
+    "vad_mode": "energy-zero-crossing-hybrid",
+    "target_lufs": -20.0
+  }
+}

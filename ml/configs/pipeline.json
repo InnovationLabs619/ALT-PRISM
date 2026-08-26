@@ -1,0 +1,41 @@
+{
+  "pipeline_version": "prism-mvp-1.0",
+  "device": "auto",
+  "audio": {
+    "target_sample_rate": 16000,
+    "target_channels": 1,
+    "normalize_volume": true,
+    "target_dbfs": -20.0,
+    "trim_silence": true,
+    "silence_threshold_db": -40.0,
+    "min_speech_duration_sec": 0.3,
+    "max_audio_duration_sec": 600.0,
+    "vad_frame_ms": 30,
+    "vad_energy_threshold": 0.015
+  },
+  "streaming": {
+    "chunk_duration_sec": 1.0,
+    "partial_interval_ms": 300,
+    "silence_finalize_sec": 0.8,
+    "max_buffered_seconds": 30.0
+  },
+  "inference": {
+    "asr_model_type": "auto",
+    "translation_model_type": "auto",
+    "compute_type": "float32",
+    "batch_size": 1,
+    "temperature": 0.0
+  },
+  "entity_preservation": {
+    "categories": [
+      "PERSON",
+      "LOCATION",
+      "DATE",
+      "TIME",
+      "NUMBER",
+      "OBJECT",
+      "EVENT"
+    ],
+    "threshold": 0.75
+  }
+}

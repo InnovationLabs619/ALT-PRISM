@@ -1,0 +1,31 @@
+{
+  "model_type": "ASR",
+  "base_model": "openai/whisper-tiny",
+  "epochs": 3,
+  "batch_size": 4,
+  "learning_rate": 0.0001,
+  "device": "cpu",
+  "total_training_time_sec": 17.24,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 9.3947,
+      "val_loss": 7.5328,
+      "epoch_duration_sec": 6.06
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.0228,
+      "val_loss": 6.766,
+      "epoch_duration_sec": 5.62
+    },
+    {
+      "epoch": 3,
+      "train_loss": 4.5847,
+      "val_loss": 6.6781,
+      "epoch_duration_sec": 5.56
+    }
+  ],
+  "checkpoint_dir": "models\\prism_asr_finetuned",
+  "timestamp": "2026-08-25 22:00:55"
+}

@@ -1,0 +1,6 @@
+Language Pair,Sample Count,BLEU,chrF
+te-en,1,100.0,100.0
+hi-en,1,74.26,87.91
+ta-en,1,100.0,100.0
+kn-en,1,100.0,100.0
+mr-en,1,67.03,82.26

@@ -1,0 +1,92 @@
+{
+  "dataset": "PRISM-SYNTHETIC-DOMAIN-DATA",
+  "total_samples": 8,
+  "code_switch_detection_accuracy": 0.75,
+  "translation_metrics": {
+    "bleu": 19.95,
+    "chrf": 35.51
+  },
+  "semantic_entity_preservation_score": 1.0,
+  "sample_evaluations": [
+    {
+      "audio_id": "PRISM_TE_000001",
+      "language": "te",
+      "category": "theft",
+      "code_switched_expected": true,
+      "code_switched_detected": true,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Na phone ninna evening railway station daggara theft ayyindi.",
+      "english_translation": "En el tel\u00e9fono de la estaci\u00f3n de ferrocarril nocturna, el robo se produjo."
+    },
+    {
+      "audio_id": "PRISM_HI_000002",
+      "language": "hi",
+      "category": "vehicle_theft",
+      "code_switched_expected": true,
+      "code_switched_detected": true,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Mera black color ka motorcycle bus stand ke paas se chori ho gaya.",
+      "english_translation": "Ma couleur noire sur le stand de bus \u00e0 moto est plus que la couleur noire."
+    },
+    {
+      "audio_id": "PRISM_TA_000003",
+      "language": "ta",
+      "category": "assault_robbery",
+      "code_switched_expected": true,
+      "code_switched_detected": false,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Enoda gold chain market kitta oru stranger snatch pannittu odipoyittan.",
+      "english_translation": "Enoda Goldkettenmarkt oder Stranger snatch pannittu odipoyittan."
+    },
+    {
+      "audio_id": "PRISM_KN_000004",
+      "language": "kn",
+      "category": "missing_person",
+      "code_switched_expected": true,
+      "code_switched_detected": true,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Nanna thamma Vijayawada indha 9:30 PM ge horatu innu baralilla.",
+      "english_translation": "Nanna thamma Vijayawada indha 9:30 PM ge oraatu innu baralilla."
+    },
+    {
+      "audio_id": "PRISM_MR_000005",
+      "language": "mr",
+      "category": "cyber_complaint",
+      "code_switched_expected": true,
+      "code_switched_detected": false,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Majhya bank account madhun online fraud dwara 50000 rupees transfer jhale.",
+      "english_translation": "Majhya cuenta bancaria madhun fraude en l\u00ednea dwara 50000 rupias transferencia jhale."
+    },
+    {
+      "audio_id": "PRISM_BN_000006",
+      "language": "bn",
+      "category": "lost_document",
+      "code_switched_expected": true,
+      "code_switched_detected": true,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Amar bag metro station e churi hoyeche jar moddhe original documents chilo.",
+      "english_translation": "A esta\u00e7\u00e3o de metr\u00f4 de Amar bag e churi hoyeche jar moddhe original documents chilo."
+    },
+    {
+      "audio_id": "PRISM_ML_000007",
+      "language": "ml",
+      "category": "accident",
+      "code_switched_expected": true,
+      "code_switched_detected": true,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "Njan junction il nilkkumbol oru car enne hit cheythu nirthathe poyi.",
+      "english_translation": "Njan jun\u00e7\u00e3o il nilkkumbol oru car enne hit cheythu nirthathe poyi."
+    },
+    {
+      "audio_id": "PRISM_EN_000008",
+      "language": "en",
+      "category": "fraud",
+      "code_switched_expected": false,
+      "code_switched_detected": false,
+      "entity_preservation_score": 1.0,
+      "source_transcript": "An unknown person called me pretending to be a bank manager and took my OTP.",
+      "english_translation": "An unknown person called me pretending to be a bank manager and took my OTP."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest & cache directories
+.pytest_cache/
+.cache/
+.huggingface/
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node modules & frontend builds
+node_modules/
+apps/frontend/node_modules/
+apps/frontend/dist/
+apps/frontend/.vite/
+
+# Large ML model weights (>100MB)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Logs & temporary files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

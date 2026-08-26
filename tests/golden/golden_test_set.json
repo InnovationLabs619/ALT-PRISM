@@ -1,0 +1,164 @@
+[
+  {
+    "audio_id": "PRISM_GOLDEN_TE_01",
+    "filename": "golden_telugu_theft.wav",
+    "language": "te",
+    "duration": 3.8,
+    "base_freq": 160.0,
+    "transcript": "Na phone ninna evening railway station daggara theft ayyindi.",
+    "english_translation": "My phone was stolen near the railway station yesterday evening.",
+    "is_code_switched": true,
+    "incident_category": "theft",
+    "entities": {
+      "persons": [],
+      "locations": [
+        "railway station"
+      ],
+      "dates": [
+        "yesterday"
+      ],
+      "times": [
+        "evening"
+      ],
+      "objects": [
+        "phone"
+      ],
+      "events": [
+        "theft"
+      ]
+    }
+  },
+  {
+    "audio_id": "PRISM_GOLDEN_HI_02",
+    "filename": "golden_hindi_vehicle.wav",
+    "language": "hi",
+    "duration": 4.2,
+    "base_freq": 175.0,
+    "transcript": "Mera black color ka motorcycle bus stand ke paas se chori ho gaya.",
+    "english_translation": "My black color motorcycle was stolen from near the bus stand.",
+    "is_code_switched": true,
+    "incident_category": "vehicle_theft",
+    "entities": {
+      "persons": [],
+      "locations": [
+        "bus stand"
+      ],
+      "dates": [],
+      "times": [],
+      "objects": [
+        "motorcycle"
+      ],
+      "events": [
+        "stolen"
+      ]
+    }
+  },
+  {
+    "audio_id": "PRISM_GOLDEN_TA_03",
+    "filename": "golden_tamil_robbery.wav",
+    "language": "ta",
+    "duration": 4.0,
+    "base_freq": 190.0,
+    "transcript": "Enoda gold chain market kitta oru stranger snatch pannittu odipoyittan.",
+    "english_translation": "A stranger snatched my gold chain near the market and ran away.",
+    "is_code_switched": true,
+    "incident_category": "assault_robbery",
+    "entities": {
+      "persons": [
+        "stranger"
+      ],
+      "locations": [
+        "market"
+      ],
+      "dates": [],
+      "times": [],
+      "objects": [
+        "gold chain"
+      ],
+      "events": [
+        "snatched"
+      ]
+    }
+  },
+  {
+    "audio_id": "PRISM_GOLDEN_KN_04",
+    "filename": "golden_kannada_missing.wav",
+    "language": "kn",
+    "duration": 4.5,
+    "base_freq": 165.0,
+    "transcript": "Nanna thamma Vijayawada indha 9:30 PM ge horatu innu baralilla.",
+    "english_translation": "My younger brother left Vijayawada at 9:30 PM and has not returned yet.",
+    "is_code_switched": true,
+    "incident_category": "missing_person",
+    "entities": {
+      "persons": [
+        "brother"
+      ],
+      "locations": [
+        "Vijayawada"
+      ],
+      "dates": [],
+      "times": [
+        "9:30 PM"
+      ],
+      "objects": [],
+      "events": [
+        "missing"
+      ]
+    }
+  },
+  {
+    "audio_id": "PRISM_GOLDEN_MR_05",
+    "filename": "golden_marathi_cyber.wav",
+    "language": "mr",
+    "duration": 4.6,
+    "base_freq": 170.0,
+    "transcript": "Majhya bank account madhun online fraud dwara 50000 rupees transfer jhale.",
+    "english_translation": "50,000 rupees were transferred from my bank account through an online fraud.",
+    "is_code_switched": true,
+    "incident_category": "cyber_complaint",
+    "entities": {
+      "persons": [],
+      "locations": [
+        "bank"
+      ],
+      "dates": [],
+      "times": [],
+      "objects": [
+        "50000 rupees",
+        "bank account"
+      ],
+      "events": [
+        "online fraud"
+      ]
+    }
+  },
+  {
+    "audio_id": "PRISM_GOLDEN_EN_06",
+    "filename": "golden_english_fraud.wav",
+    "language": "en",
+    "duration": 4.8,
+    "base_freq": 185.0,
+    "transcript": "An unknown person called me pretending to be a bank manager and took my OTP.",
+    "english_translation": "An unknown person called me pretending to be a bank manager and took my OTP.",
+    "is_code_switched": false,
+    "incident_category": "fraud",
+    "entities": {
+      "persons": [
+        "unknown person",
+        "bank manager"
+      ],
+      "locations": [
+        "bank"
+      ],
+      "dates": [],
+      "times": [],
+      "objects": [
+        "OTP"
+      ],
+      "events": [
+        "fraud"
+      ]
+    }
+  }
+]

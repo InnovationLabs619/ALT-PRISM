@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: prism-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - AI_DEVICE=auto
+      - SECRET_KEY=prism-secure-jwt-secret-key-internal-police-dept-2026
+      - HF_HOME=/app/.cache/huggingface
+      - TORCH_HOME=/app/.cache/torch
+    volumes:
+      - prism-model-cache:/app/.cache
+      - ./data:/app/data
+      - ./ml/reports:/app/ml/reports
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    container_name: prism-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  prism-model-cache:
+    driver: local

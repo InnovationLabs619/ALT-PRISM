@@ -1,0 +1,113 @@
+{
+  "supported_languages": {
+    "te": {
+      "name": "Telugu",
+      "native_name": "తెలుగు",
+      "script": "Telugu",
+      "unicode_range": ["\u0C00", "\u0C7F"],
+      "nllb_code": "tel_Telu",
+      "indictrans_code": "tel_Telu",
+      "mvp_priority": 1
+    },
+    "hi": {
+      "name": "Hindi",
+      "native_name": "हिन्दी",
+      "script": "Devanagari",
+      "unicode_range": ["\u0900", "\u097F"],
+      "nllb_code": "hin_Deva",
+      "indictrans_code": "hin_Deva",
+      "mvp_priority": 1
+    },
+    "ta": {
+      "name": "Tamil",
+      "native_name": "தமிழ்",
+      "script": "Tamil",
+      "unicode_range": ["\u0B80", "\u0BFF"],
+      "nllb_code": "tam_Taml",
+      "indictrans_code": "tam_Taml",
+      "mvp_priority": 1
+    },
+    "kn": {
+      "name": "Kannada",
+      "native_name": "ಕನ್ನಡ",
+      "script": "Kannada",
+      "unicode_range": ["\u0C80", "\u0CFF"],
+      "nllb_code": "kan_Knda",
+      "indictrans_code": "kan_Knda",
+      "mvp_priority": 1
+    },
+    "ml": {
+      "name": "Malayalam",
+      "native_name": "മലയാളം",
+      "script": "Malayalam",
+      "unicode_range": ["\u0D00", "\u0D7F"],
+      "nllb_code": "mal_Mlym",
+      "indictrans_code": "mal_Mlym",
+      "mvp_priority": 1
+    },
+    "mr": {
+      "name": "Marathi",
+      "native_name": "मराठी",
+      "script": "Devanagari",
+      "unicode_range": ["\u0900", "\u097F"],
+      "nllb_code": "mar_Deva",
+      "indictrans_code": "mar_Deva",
+      "mvp_priority": 1
+    },
+    "bn": {
+      "name": "Bengali",
+      "native_name": "বাংলা",
+      "script": "Bengali",
+      "unicode_range": ["\u0980", "\u09FF"],
+      "nllb_code": "ben_Beng",
+      "indictrans_code": "ben_Beng",
+      "mvp_priority": 1
+    },
+    "gu": {
+      "name": "Gujarati",
+      "native_name": "ગુજરાતી",
+      "script": "Gujarati",
+      "unicode_range": ["\u0A80", "\u0AFF"],
+      "nllb_code": "guj_Gujr",
+      "indictrans_code": "guj_Gujr",
+      "mvp_priority": 2
+    },
+    "or": {
+      "name": "Odia",
+      "native_name": "ଓଡ଼ିଆ",
+      "script": "Odia",
+      "unicode_range": ["\u0B00", "\u0B7F"],
+      "nllb_code": "ory_Orya",
+      "indictrans_code": "ory_Orya",
+      "mvp_priority": 2
+    },
+    "pa": {
+      "name": "Punjabi",
+      "native_name": "ਪੰਜਾਬੀ",
+      "script": "Gurmukhi",
+      "unicode_range": ["\u0A00", "\u0A7F"],
+      "nllb_code": "pan_Guru",
+      "indictrans_code": "pan_Guru",
+      "mvp_priority": 2
+    },
+    "as": {
+      "name": "Assamese",
+      "native_name": "অসমীয়া",
+      "script": "Bengali",
+      "unicode_range": ["\u0980", "\u09FF"],
+      "nllb_code": "asm_Beng",
+      "indictrans_code": "asm_Beng",
+      "mvp_priority": 2
+    },
+    "en": {
+      "name": "English",
+      "native_name": "English",
+      "script": "Latin",
+      "unicode_range": ["\u0020", "\u007E"],
+      "nllb_code": "eng_Latn",
+      "indictrans_code": "eng_Latn",
+      "mvp_priority": 1
+    }
+  },
+  "default_target_language": "en"
+}
