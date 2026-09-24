@@ -132,7 +132,7 @@ class IndicConformerASRProvider(ASRProvider):
         torch_dtype: Optional[torch.dtype] = None,
     ):
         finetuned_path = Path("models/prism_asr_finetuned")
-        default_model = str(finetuned_path) if (finetuned_path.exists() and (finetuned_path / "model.safetensors").exists()) else "openai/whisper-tiny"
+        default_model = "openai/whisper-tiny"
         chosen_model = model_name or default_model
 
         super().__init__(model_name=chosen_model, model_version=model_version, device=device)
@@ -145,30 +145,29 @@ class IndicConformerASRProvider(ASRProvider):
         if self.is_loaded:
             return
 
-        print(f"[PRISM ASR] Initializing local self-hosted model: {self.model_name} on {self.device}...")
+        print(f"[PRISM ASR] Initializing local ASR model: {self.model_name} on {self.device}...")
         try:
-            self.processor = AutoProcessor.from_pretrained(self.model_name)
-            self.model = AutoModelForSpeechSeq2Seq.from_pretrained(
-                self.model_name,
-                torch_dtype=self.torch_dtype,
-                low_cpu_mem_usage=True,
-            ).to(self.device)
+            from transformers import pipeline
+            self.pipeline = pipeline(
+                "automatic-speech-recognition",
+                model=self.model_name,
+                device=0 if self.device == "cuda" else -1,
+            )
             self.is_loaded = True
-            print(f"[PRISM ASR] Local model '{self.model_name}' successfully loaded.")
+            print(f"[PRISM ASR] Model '{self.model_name}' successfully loaded via HuggingFace Pipeline.")
         except Exception as e:
-            # Fallback to base model if chosen path fails
             try:
                 print(f"[PRISM ASR Notice] Attempting fallback to whisper-tiny: {e}")
                 self.model_name = "openai/whisper-tiny"
-                self.processor = AutoProcessor.from_pretrained(self.model_name)
-                self.model = AutoModelForSpeechSeq2Seq.from_pretrained(
-                    self.model_name,
-                    torch_dtype=self.torch_dtype,
-                    low_cpu_mem_usage=True,
-                ).to(self.device)
+                from transformers import pipeline
+                self.pipeline = pipeline(
+                    "automatic-speech-recognition",
+                    model=self.model_name,
+                    device=-1,
+                )
                 self.is_loaded = True
             except Exception as e2:
-                print(f"[PRISM ASR Notice] Activating high-performance offline Indic acoustic engine: {e2}")
+                print(f"[PRISM ASR Error] Failed to initialize pipeline: {e2}")
                 self.is_loaded = True
 
 
@@ -201,32 +200,16 @@ class IndicConformerASRProvider(ASRProvider):
         segments: List[ASRSegment] = []
 
         try:
-            if self.model is not None and self.processor is not None:
-                inputs = self.processor(
-                    audio,
-                    sampling_rate=sample_rate,
-                    return_tensors="pt"
-                ).to(self.device, dtype=self.torch_dtype)
-
-                gen_kwargs = {"max_length": 448}
+            if self.pipeline is not None:
+                gen_kwargs = {"task": "transcribe"}
                 if mapped_lang:
-                    try:
-                        forced_decoder_ids = self.processor.get_decoder_prompt_ids(
-                            language=mapped_lang, task="transcribe"
-                        )
-                        gen_kwargs["forced_decoder_ids"] = forced_decoder_ids
-                    except Exception:
-                        pass
-
-                with torch.no_grad():
-                    predicted_ids = self.model.generate(
-                        inputs.input_features,
-                        **gen_kwargs
-                    )
-                raw_text = self.processor.batch_decode(
-                    predicted_ids, skip_special_tokens=True
-                )[0].strip()
-
+                    gen_kwargs["language"] = mapped_lang
+                
+                res = self.pipeline(audio, generate_kwargs=gen_kwargs)
+                if isinstance(res, dict) and "text" in res:
+                    raw_text = res["text"].strip()
+                elif isinstance(res, str):
+                    raw_text = res.strip()
 
                 if raw_text:
                     segments = [
@@ -236,26 +219,21 @@ class IndicConformerASRProvider(ASRProvider):
                             end_sec=round(len(audio) / sample_rate, 2),
                             text=raw_text,
                             confidence=0.92,
-                            language=target_lang,
+                            language=target_lang or "en",
                         )
                     ]
 
         except Exception as err:
-            print(f"[PRISM ASR Notice] Acoustic processor fallback engaged: {err}")
+            print(f"[PRISM ASR Error] Pipeline inference exception: {err}")
             raw_text = ""
             segments = []
 
-        # Filter out repetitive hallucinations or single punctuation marks
-        is_repetitive = len(raw_text.split()) > 5 and len(set(raw_text.split())) <= 2
-        is_empty_or_punct = (
-            not raw_text
-            or set(raw_text.strip()) <= {".", " ", ",", "!", "?", "।"}
-            or is_repetitive
-            or raw_text.strip().lower() in {"you", "thank you", "subtitles by", "amara.org"}
-        )
-        if is_empty_or_punct:
-            raw_text = ""
-            segments = []
+        # Filter out invalid or empty responses
+        if raw_text:
+            cleaned = raw_text.strip().lower()
+            if cleaned in {"you", "thank you", "subtitles by", "amara.org", "."}:
+                raw_text = ""
+                segments = []
 
         latency = round(time.time() - start_time, 4)
 

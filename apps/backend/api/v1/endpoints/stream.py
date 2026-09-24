@@ -60,6 +60,7 @@ async def websocket_speech_stream(websocket: WebSocket):
                 if is_paused:
                     continue
                 raw_bytes = data["bytes"]
+                chunk = None
                 try:
                     chunk, sr = sf.read(io.BytesIO(raw_bytes), dtype="float32")
                     if chunk.ndim > 1:
@@ -67,7 +68,13 @@ async def websocket_speech_stream(websocket: WebSocket):
                     if sr != 16000:
                         chunk = engine.preprocessor.resample(chunk, sr)
                 except Exception:
-                    chunk = np.frombuffer(raw_bytes, dtype=np.int16).astype(np.float32) / 32768.0
+                    pass
+
+                if chunk is None or len(chunk) == 0:
+                    try:
+                        chunk = np.frombuffer(raw_bytes, dtype=np.float32)
+                    except Exception:
+                        chunk = np.frombuffer(raw_bytes, dtype=np.int16).astype(np.float32) / 32768.0
 
             elif "text" in data and data["text"]:
                 try:
@@ -119,6 +126,7 @@ async def websocket_speech_stream(websocket: WebSocket):
                     b64_audio = msg.get("audio", "")
                     clean_b64 = b64_audio.split(",")[-1] if "," in b64_audio else b64_audio
                     raw_bytes = base64.b64decode(clean_b64)
+                    chunk = None
                     try:
                         chunk, sr = sf.read(io.BytesIO(raw_bytes), dtype="float32")
                         if chunk.ndim > 1:
@@ -126,7 +134,12 @@ async def websocket_speech_stream(websocket: WebSocket):
                         if sr != 16000:
                             chunk = engine.preprocessor.resample(chunk, sr)
                     except Exception:
-                        chunk = np.frombuffer(raw_bytes, dtype=np.int16).astype(np.float32) / 32768.0
+                        pass
+                    if chunk is None or len(chunk) == 0:
+                        try:
+                            chunk = np.frombuffer(raw_bytes, dtype=np.float32)
+                        except Exception:
+                            chunk = np.frombuffer(raw_bytes, dtype=np.int16).astype(np.float32) / 32768.0
                 else:
                     continue
             else:
